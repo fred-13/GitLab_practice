@@ -44,10 +44,6 @@ and open something like below in a browser
 https://gitlab.192.168.99.100.nip.io/
 ```
 
-```
-git clone https://gitlab.192.168.99.100.nip.io/root/helm-demo.git
-```
-
 ## Get the password
 ```
 kubectl get secret gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}' | base64 --decode ; echo

@@ -1,19 +1,19 @@
+image: docker:dind
+
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+
+services:
+  - name: docker:dind
+    alias: docker
+    command: ["--tls=false"]
+
 stages:
   - build
-  - test
-  - deploy
 
-build-job-example:
+build:
   stage: build
   script:
-    - echo "Building the 'Hello World' app"
-
-test-job-example:
-  stage: test
-  script:
-    - echo "Testing the 'Hello World' app"
-
-deploy-job-example:
-  stage: deploy
-  script:
-    - echo "Deploying the 'Hello World' app"
+    - docker info
